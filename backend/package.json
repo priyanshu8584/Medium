@@ -1,7 +1,7 @@
 {
   "scripts": {
     "dev": "wrangler dev src/index.ts",
-    "build":"npm run dev",
+    "build": "npm run dev",
     "deploy": "wrangler deploy --minify src/index.ts"
   },
   "dependencies": {
@@ -13,6 +13,6 @@
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20240403.0",
-    "wrangler": "^3.51.2"
+    "wrangler": "^3.72.2"
   }
 }
