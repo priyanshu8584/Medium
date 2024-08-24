@@ -56,11 +56,12 @@ userRouter.post("/signin",async (c)=>{
     })
     if(!user)
       {
+        console.log("incorrect creds");
         c.status(403);
         return c.text("incorrect credentials");
       }
     const jwt=await sign({id:user.id},c.env.JWT_SECRET);
-    return c.json({jwt});
+    return c.text(jwt);
   }
   catch(e){
     console.log(e);

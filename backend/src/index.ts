@@ -13,7 +13,11 @@ const app = new Hono<{
     
   }
 }>()
-
+app.use("/*", cors({
+  origin: '*',  // Or specify a domain like 'https://your-frontend-domain.com'
+  allowMethods: ['GET', 'POST', 'PUT', 'DELETE'], // specify allowed methods
+  allowHeaders: ['Content-Type', 'Authorization'], // specify allowed headers
+}));
 app.route("/api/v1/user",userRouter);
 app.route("/api/v1/blog",blogRouter);
 app.get('/', (c) => {

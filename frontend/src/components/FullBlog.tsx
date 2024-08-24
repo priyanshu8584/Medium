@@ -38,7 +38,7 @@ export const FullBlog=({blog}:{blog:Blog})=>{
         
         
             <div className="pt-2 text-slate-500 ">
-                    Random phrase about the author to catch user's attention like , bio
+                    your account
             </div>
         </div>
        </div>
