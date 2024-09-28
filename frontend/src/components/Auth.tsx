@@ -33,7 +33,7 @@ export const Auth = ({ type }: { type: "signup" | "signin" }) => {
     }
   }
 
-  // Conditional rendering based on the type
+ 
   return (
     <div className="h-screen flex justify-center flex-col">
       <div className="flex justify-center">
@@ -101,7 +101,7 @@ export const Auth = ({ type }: { type: "signup" | "signin" }) => {
             {type === "signup" ? "Already have an account?" : "Don't have an account?"}
             <Link
               className="underline"
-              to={type === "signup" ? "/signin" : "/signup"}
+              to={type === "signup" ? "/signin" : "/"}
             >
               {type === "signup" ? "Login" : "Create an Account"}
             </Link>

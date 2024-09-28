@@ -12,14 +12,14 @@ export const userRouter=new Hono<{
 
 userRouter.post("/signup",async (c)=>{
   const body=await c.req.json();
-  const {success}=signupInput.safeParse(body);
-  if(!success)
-    {
-      c.status(411);
-      c.json({
-        message:"inputs not correct"
-      })
-    }
+  // const {success}=signupInput.safeParse(body);
+  // if(!success)
+  //   {
+  //     c.status(411);
+  //     c.json({
+  //       message:"inputs not correct"
+  //     })
+  //   }
   const prisma= new PrismaClient({
     datasourceUrl:c.env.DATABASE_URL,
 
@@ -32,7 +32,11 @@ userRouter.post("/signup",async (c)=>{
        name:body.name
       }
     })
-    const jwt=await sign({id:user.id},c.env.JWT_SECRET);
+    console.log(body);
+    const jwt = await sign({ id: user.id }, "priyanshu").catch((err) => {
+      console.error("JWT sign error:", err);
+      throw new Error("Failed to sign JWT");
+    });
     return c.text(jwt);
   }
   catch(e){
